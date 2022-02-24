@@ -16,7 +16,7 @@ jobs:
       env:
 #        Docker_Hub_Username: xxxxxx
 #        Docker_Hub_Password: xxxxxx
-        DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         repository: cj22011992/demo-app:latest
         tags: latest, ${{ secrets.run_number }}
