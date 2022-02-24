@@ -30,8 +30,4 @@ jobs:
 #    - name: Build and push
 #      with:
 #          push: true
-<<<<<<< HEAD
 #          tags: cj22011992/demo-app:latest
-=======
-#          tags: cj22011992/demo-app:latest
->>>>>>> a01355fc1cb45c20959e8af515c0da1d52c02163
