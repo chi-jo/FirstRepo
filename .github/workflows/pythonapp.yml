@@ -21,7 +21,7 @@ jobs:
         repository: cj22011992/demo-app:latest
         tags: latest, ${{ secrets.run_number }}
       run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         docker image build -t cj22011992/demo-app:latest .
         docker push cj22011992/demo-app:latest
     
