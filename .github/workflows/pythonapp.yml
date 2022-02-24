@@ -23,9 +23,9 @@ jobs:
       env:
 #        Docker_Hub_Username: xxxxxx
 #        Docker_Hub_Password: xxxxxx
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        repository: test/vampi_docker:latest
-        tags: latest, ${{ secrets.DOCKER_TOKEN }}
+        repository: cj22011992/demo-app:latest
+        tags: latest, ${{ secrets.run_number }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
