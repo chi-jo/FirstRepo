@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build & Push Image
-      uses: docker/build-push-action@v1
+      uses: docker/build-push-action@v2
       with:
         username: ${{ secrets.DOCKER.USERNAME }}
         password: ${{ secrets.DOCKER.PASSWORD }}
