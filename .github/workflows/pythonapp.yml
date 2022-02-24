@@ -8,13 +8,12 @@ on:
       
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
     - name: Build & Push Image
-      run: |
-        echo "${{ secrets.DOCKERPASSWORD }}" | docker login -u "${{ secrets.DOCKERUSERNAME }}" --password-stdin
-        docker image build -t dab8106/gitaction:v1 .
-        docker push dab8106/gitaction:v1
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{DOCKER.USERNAME}}
+        password: ${{DOCKER.PASSWORD}}
+        repository: cj22011992 / demo-app
+        tags: latest, ${{github.run_number}}
