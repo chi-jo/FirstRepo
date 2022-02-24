@@ -16,12 +16,12 @@ jobs:
       env:
 #        Docker_Hub_Username: xxxxxx
 #        Docker_Hub_Password: xxxxxx
-        DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         repository: cj22011992/demo-app:latest
         tags: latest, ${{ secrets.run_number }}
       run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         docker image build -t cj22011992/demo-app:latest .
         docker push cj22011992/demo-app:latest
     
@@ -30,8 +30,4 @@ jobs:
 #    - name: Build and push
 #      with:
 #          push: true
-<<<<<<< HEAD
 #          tags: cj22011992/demo-app:latest
-=======
-#          tags: cj22011992/demo-app:latest
->>>>>>> a01355fc1cb45c20959e8af515c0da1d52c02163
