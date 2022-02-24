@@ -30,4 +30,3 @@ jobs:
 #    - name: Build and push
 #      with:
 #          push: true
-#          tags: cj22011992/demo-app:latest
