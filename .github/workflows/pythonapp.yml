@@ -10,10 +10,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Build & Push Image
-      uses: docker/build-push-action@v2
-      with:
-        username: ${{ secrets.DOCKER.USERNAME }}
-        password: ${{ secrets.DOCKER.PASSWORD }}
-        repository: cj22011992 / demo-app
-        tags: latest, ${{ github.run_number }}
+#    - name: Build & Push Image
+#      uses: docker/build-push-action@v2
+#      with:
+#        username: ${{ secrets.DOCKER.USERNAME }}
+#        password: ${{ secrets.DOCKER.PASSWORD }}
+#        repository: cj22011992 / demo-app
+#        tags: latest, ${{ github.run_number }}
+
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+#        Docker_Hub_Username: xxxxxx
+#        Docker_Hub_Password: xxxxxx
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        repository: test/vampi_docker:latest
+        tags: latest, ${{ secrets.DOCKER_TOKEN }}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
