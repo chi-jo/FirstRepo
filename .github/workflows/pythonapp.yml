@@ -23,8 +23,9 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     
-    - name: Build and push
+
     - uses: docker/build-push-action@v2
+    - name: Build and push
       with:
           push: true
-          tags: cj22011992/demo-app/app:latest
+          tags: cj22011992/demo-app:latest
