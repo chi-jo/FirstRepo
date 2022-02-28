@@ -1,0 +1,30 @@
+name: Python application
+
+on:
+  push:
+   tags: "*"
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+#        Docker_Hub_Username: xxxxxx
+#        Docker_Hub_Password: xxxxxx
+        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        repository: cj22011992/productiv:latest
+        tags: latest, ${{ secrets.run_number }}
+      run: |
+        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        docker image build -t cj22011992/productiv:latest .
+        docker push cj22011992/productiv:latest
+    
+# try
+#    - uses: docker/build-push-action@v2
+#    - name: Build and push
+#      with:
+#          push: true
